@@ -1,13 +1,13 @@
 package fr.jp.perso.domotik;
 
 public abstract class SmartDevice {
-   private String ip;
+   private String ipAddress;
 
-   public SmartDevice(String ip) {
-      this.ip = ip;
+   public SmartDevice(String ipAddress) {
+      this.ipAddress = ipAddress;
    }
 
-   public String getIp() {
-      return ip;
+   public String getIpAddress() {
+      return ipAddress;
    }
 }

@@ -7,12 +7,12 @@
     <parent>
         <groupId>fr.jp.perso</groupId>
         <artifactId>domotik-integration</artifactId>
-        <version>1.0</version>
+        <version>1.0-SNAPSHOT</version>
     </parent>
     <artifactId>domotik-tplink</artifactId>
     <version>1.0-SNAPSHOT</version>
     <packaging>jar</packaging>
-    <name>domotik-tplink</name>
+    <name>domotik Tp-Link</name>
 
     <build>
         <plugins>

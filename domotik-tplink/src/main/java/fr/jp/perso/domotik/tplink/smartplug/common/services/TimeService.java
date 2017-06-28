@@ -19,7 +19,7 @@ class TimeService {
    GetTimeResponse getTime(TpLinkSmartPlug tpLinkSmartPlug) {
       TpLinkCommandWrapper request = new TpLinkCommandWrapper(TpLinkTargets.TIME, new GetTimeCommand());
 
-      String response = requestService.sendRequest(tpLinkSmartPlug.getIp(), request);
+      String response = requestService.sendRequest(tpLinkSmartPlug.getIpAddress(), request);
 
       ResponseService<GetTimeResponse> responseService = new ResponseService<>(GetTimeResponse.class);
       return responseService.deserializeResponse(response);
@@ -28,7 +28,7 @@ class TimeService {
    GetTimezoneResponse getTimezone(TpLinkSmartPlug tpLinkSmartPlug) {
       TpLinkCommandWrapper request = new TpLinkCommandWrapper(TpLinkTargets.TIME, new GetTimezoneCommand());
 
-      String response = requestService.sendRequest(tpLinkSmartPlug.getIp(), request);
+      String response = requestService.sendRequest(tpLinkSmartPlug.getIpAddress(), request);
 
       ResponseService<GetTimezoneResponse> responseService = new ResponseService<>(GetTimezoneResponse.class);
       return responseService.deserializeResponse(response);

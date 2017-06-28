@@ -8,7 +8,7 @@
     <artifactId>domotik-integration</artifactId>
     <packaging>pom</packaging>
     <version>1.0-SNAPSHOT</version>
-    <name>Domotik-integration</name>
+    <name>Domotik Integration</name>
 
     <modules>
         <module>domotik-tplink</module>
@@ -28,6 +28,12 @@
     </build>
 
     <dependencies>
+        <dependency>
+            <groupId>fr.jp.perso.domotik</groupId>
+            <artifactId>domotik-library</artifactId>
+            <version>0.0.1-SNAPSHOT</version>
+        </dependency>
+
         <dependency>
             <groupId>org.springframework.boot</groupId>
             <artifactId>spring-boot-starter-web</artifactId>

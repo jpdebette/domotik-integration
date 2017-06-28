@@ -5,8 +5,8 @@ import fr.jp.perso.domotik.tplink.smartplug.common.bean.responses.GetSystemInfoR
 import fr.jp.perso.domotik.tplink.smartplug.common.services.ResponseService;
 
 public abstract class TpLinkSmartPlug extends SmartDevice {
-   public TpLinkSmartPlug(String ip) {
-      super(ip);
+   public TpLinkSmartPlug(String ipAddress) {
+      super(ipAddress);
    }
 
    public abstract ResponseService<? extends GetSystemInfoResponse> getSystemInfoDeserializer();
