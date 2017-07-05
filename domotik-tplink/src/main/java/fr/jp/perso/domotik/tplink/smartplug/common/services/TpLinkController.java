@@ -21,7 +21,7 @@ import fr.jp.perso.domotik.tplink.smartplug.hs105.HS105;
 
 @RestController
 @RequestMapping("/tplink")
-public class TpLinkFacade {
+public class TpLinkController {
    @Autowired
    private SystemService systemService;
    @Autowired

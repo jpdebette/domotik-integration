@@ -12,6 +12,7 @@
 
     <modules>
         <module>domotik-tplink</module>
+        <module>domotik-spotify</module>
     </modules>
     
     <build>
