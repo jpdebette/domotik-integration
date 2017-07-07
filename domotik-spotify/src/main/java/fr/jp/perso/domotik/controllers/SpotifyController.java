@@ -78,4 +78,23 @@ public class SpotifyController {
       ResponseEntity<SpotifyTokenResponse> response = restTemplate.exchange(uri, HttpMethod.POST, entity, SpotifyTokenResponse.class);
       return response.getBody().toString();
    }
+
+   @RequestMapping(path = "/{clientId}/renewToken", method = RequestMethod.GET)
+   public String renewToken(@PathVariable String clientId) {
+      String refreshToken = "";
+      String clientSecret = "";
+
+      String idSecret = clientId + ":" + clientSecret;
+      String idSecretEncoded = new String(Base64.encodeBase64(idSecret.getBytes()));
+
+      final String uri = "https://accounts.spotify.com/api/token?grant_type=refresh_token&refresh_token=" + refreshToken;
+      RestTemplate restTemplate = new RestTemplate();
+
+      HttpHeaders headers = new HttpHeaders();
+      headers.set("Authorization", "Basic " + idSecretEncoded);
+      HttpEntity<String> entity = new HttpEntity<>(headers);
+
+      ResponseEntity<SpotifyTokenResponse> response = restTemplate.exchange(uri, HttpMethod.POST, entity, SpotifyTokenResponse.class);
+      return response.getBody().toString();
+   }
 }

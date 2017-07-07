@@ -19,12 +19,13 @@ class RequestService {
 
    String sendRequest(String host, TpLinkCommandWrapper request) {
       ObjectMapper mapper = new ObjectMapper();
-      byte[] response;
+      String jsonRequest;
       try {
-         response = sendRequest(host, mapper.writeValueAsString(request));
+         jsonRequest = mapper.writeValueAsString(request);
       } catch(JsonProcessingException e) {
          throw new RuntimeException("Problem during serializing the request.", e);
       }
+      byte[] response = sendRequest(host, jsonRequest);
       return new String(response);
    }
 
