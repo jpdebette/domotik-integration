@@ -1,14 +1,7 @@
 package fr.jp.perso.domotik.tplink.smartplug.common.services;
 
-import fr.jp.perso.domotik.tplink.smartplug.TpLinkSmartPlug;
-import fr.jp.perso.domotik.tplink.smartplug.common.bean.CountDownRule;
-import fr.jp.perso.domotik.tplink.smartplug.common.bean.responses.TpLinkResponse;
-import fr.jp.perso.domotik.tplink.smartplug.common.enums.TpLinkActiveModes;
-import fr.jp.perso.domotik.tplink.smartplug.common.enums.TpLinkModels;
-import fr.jp.perso.domotik.tplink.smartplug.hs100.HS100;
-import fr.jp.perso.domotik.tplink.smartplug.hs100.responses.GetHS100SystemInfoResponse;
-import fr.jp.perso.domotik.tplink.smartplug.hs105.HS105;
-import fr.jp.perso.domotik.tplink.smartplug.hs105.responses.GetHS105SystemInfoResponse;
+import java.util.UUID;
+
 import org.junit.Assert;
 import org.junit.Test;
 import org.junit.runner.RunWith;
@@ -16,7 +9,15 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.test.context.junit4.SpringRunner;
 
-import java.util.UUID;
+import fr.jp.perso.domotik.tplink.smartplug.TpLinkSmartPlug;
+import fr.jp.perso.domotik.tplink.smartplug.common.bean.CountDownRule;
+import fr.jp.perso.domotik.tplink.smartplug.common.bean.responses.TpLinkResponse;
+import fr.jp.perso.domotik.tplink.smartplug.common.enums.TpLinkActiveMode;
+import fr.jp.perso.domotik.tplink.smartplug.common.enums.TpLinkModel;
+import fr.jp.perso.domotik.tplink.smartplug.hs100.HS100;
+import fr.jp.perso.domotik.tplink.smartplug.hs100.responses.GetHS100SystemInfoResponse;
+import fr.jp.perso.domotik.tplink.smartplug.hs105.HS105;
+import fr.jp.perso.domotik.tplink.smartplug.hs105.responses.GetHS105SystemInfoResponse;
 
 @RunWith(SpringRunner.class)
 @SpringBootTest
@@ -74,16 +75,16 @@ public class IntegrationTest {
       Assert.assertEquals("Ampli", plugResponse.getAlias());
       Assert.assertEquals("Smart Wi-Fi Plug Mini", plugResponse.getDeviceName());
       Assert.assertEquals(false, plugResponse.isLedOff());
-      Assert.assertEquals(TpLinkModels.HS105_US, plugResponse.getModel());
+      Assert.assertEquals(TpLinkModel.HS105_US, plugResponse.getModel());
 
       return plugResponse;
    }
 
    public GetHS100SystemInfoResponse shouldGetHS100SystemInfoCorrectly() throws Exception {
       GetHS100SystemInfoResponse plugResponse = (GetHS100SystemInfoResponse)systemService.getSystemInfo(hs100);
-      Assert.assertEquals(TpLinkActiveModes.NONE, plugResponse.getActiveMode());
+      Assert.assertEquals(TpLinkActiveMode.NONE, plugResponse.getActiveMode());
       Assert.assertEquals("Camera", plugResponse.getAlias());
-      Assert.assertEquals(TpLinkModels.HS100_US, plugResponse.getModel());
+      Assert.assertEquals(TpLinkModel.HS100_US, plugResponse.getModel());
       Assert.assertEquals(false, plugResponse.isLedOff());
 
       return plugResponse;

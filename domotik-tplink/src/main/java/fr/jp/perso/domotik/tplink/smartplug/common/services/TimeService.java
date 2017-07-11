@@ -9,7 +9,7 @@ import fr.jp.perso.domotik.tplink.smartplug.common.bean.commands.time.GetTimeCom
 import fr.jp.perso.domotik.tplink.smartplug.common.bean.commands.time.GetTimezoneCommand;
 import fr.jp.perso.domotik.tplink.smartplug.common.bean.responses.GetTimeResponse;
 import fr.jp.perso.domotik.tplink.smartplug.common.bean.responses.GetTimezoneResponse;
-import fr.jp.perso.domotik.tplink.smartplug.common.enums.TpLinkTargets;
+import fr.jp.perso.domotik.tplink.smartplug.common.enums.TpLinkTarget;
 
 @Component
 class TimeService {
@@ -17,7 +17,7 @@ class TimeService {
    private RequestService requestService;
 
    GetTimeResponse getTime(TpLinkSmartPlug tpLinkSmartPlug) {
-      TpLinkCommandWrapper request = new TpLinkCommandWrapper(TpLinkTargets.TIME, new GetTimeCommand());
+      TpLinkCommandWrapper request = new TpLinkCommandWrapper(TpLinkTarget.TIME, new GetTimeCommand());
 
       String response = requestService.sendRequest(tpLinkSmartPlug.getIpAddress(), request);
 
@@ -26,7 +26,7 @@ class TimeService {
    }
 
    GetTimezoneResponse getTimezone(TpLinkSmartPlug tpLinkSmartPlug) {
-      TpLinkCommandWrapper request = new TpLinkCommandWrapper(TpLinkTargets.TIME, new GetTimezoneCommand());
+      TpLinkCommandWrapper request = new TpLinkCommandWrapper(TpLinkTarget.TIME, new GetTimezoneCommand());
 
       String response = requestService.sendRequest(tpLinkSmartPlug.getIpAddress(), request);
 

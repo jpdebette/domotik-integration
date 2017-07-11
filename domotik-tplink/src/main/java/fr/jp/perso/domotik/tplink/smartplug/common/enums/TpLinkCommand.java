@@ -2,12 +2,12 @@ package fr.jp.perso.domotik.tplink.smartplug.common.enums;
 
 import com.fasterxml.jackson.annotation.JsonValue;
 
-public enum TpLinkCommands {
+public enum TpLinkCommand {
    GET_SYSTEM_INFO("get_sysinfo");
 
    private String label;
 
-   TpLinkCommands(String label) {
+   TpLinkCommand(String label) {
       this.label = label;
    }
 

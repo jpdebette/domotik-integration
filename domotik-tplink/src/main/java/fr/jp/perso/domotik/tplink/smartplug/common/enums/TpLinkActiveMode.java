@@ -2,12 +2,12 @@ package fr.jp.perso.domotik.tplink.smartplug.common.enums;
 
 import com.fasterxml.jackson.annotation.JsonValue;
 
-public enum TpLinkActiveModes {
+public enum TpLinkActiveMode {
    NONE("none"), SCHEDULE("schedule");
 
    private String activeModeLabel;
 
-   TpLinkActiveModes(String activeModeLabel) {
+   TpLinkActiveMode(String activeModeLabel) {
       this.activeModeLabel = activeModeLabel;
    }
 

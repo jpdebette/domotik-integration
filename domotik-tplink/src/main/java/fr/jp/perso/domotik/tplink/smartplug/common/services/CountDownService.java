@@ -11,7 +11,7 @@ import fr.jp.perso.domotik.tplink.smartplug.common.bean.commands.countdown.Delet
 import fr.jp.perso.domotik.tplink.smartplug.common.bean.commands.countdown.DeleteCountDownRuleCommand;
 import fr.jp.perso.domotik.tplink.smartplug.common.bean.commands.countdown.EditCountDownRuleCommand;
 import fr.jp.perso.domotik.tplink.smartplug.common.bean.commands.countdown.GetCountDownRuleCommand;
-import fr.jp.perso.domotik.tplink.smartplug.common.enums.TpLinkTargets;
+import fr.jp.perso.domotik.tplink.smartplug.common.enums.TpLinkTarget;
 
 @Component
 class CountDownService {
@@ -19,7 +19,7 @@ class CountDownService {
    private RequestService requestService;
 
    CountDownRule getCountDownRule(TpLinkSmartPlug tpLinkSmartPlug) {
-      TpLinkCommandWrapper request = new TpLinkCommandWrapper(TpLinkTargets.COUNT_DOWN, new GetCountDownRuleCommand());
+      TpLinkCommandWrapper request = new TpLinkCommandWrapper(TpLinkTarget.COUNT_DOWN, new GetCountDownRuleCommand());
 
       String response = requestService.sendRequest(tpLinkSmartPlug.getIpAddress(), request);
 
@@ -28,7 +28,7 @@ class CountDownService {
    }
 
    CountDownRule addCountDownRule(TpLinkSmartPlug tpLinkSmartPlug, CountDownRule countDownRule) {
-      TpLinkCommandWrapper request = new TpLinkCommandWrapper(TpLinkTargets.COUNT_DOWN, new AddCountDownRuleCommand(countDownRule));
+      TpLinkCommandWrapper request = new TpLinkCommandWrapper(TpLinkTarget.COUNT_DOWN, new AddCountDownRuleCommand(countDownRule));
 
       String response = requestService.sendRequest(tpLinkSmartPlug.getIpAddress(), request);
 
@@ -37,7 +37,7 @@ class CountDownService {
    }
 
    CountDownRule editCountDownRule(TpLinkSmartPlug tpLinkSmartPlug, CountDownRule countDownRule) {
-      TpLinkCommandWrapper request = new TpLinkCommandWrapper(TpLinkTargets.COUNT_DOWN, new EditCountDownRuleCommand(countDownRule));
+      TpLinkCommandWrapper request = new TpLinkCommandWrapper(TpLinkTarget.COUNT_DOWN, new EditCountDownRuleCommand(countDownRule));
 
       String response = requestService.sendRequest(tpLinkSmartPlug.getIpAddress(), request);
 
@@ -46,7 +46,7 @@ class CountDownService {
    }
 
    CountDownRule deleteCountDownRule(TpLinkSmartPlug tpLinkSmartPlug, String countDownRuleId) {
-      TpLinkCommandWrapper request = new TpLinkCommandWrapper(TpLinkTargets.COUNT_DOWN, new DeleteCountDownRuleCommand(countDownRuleId));
+      TpLinkCommandWrapper request = new TpLinkCommandWrapper(TpLinkTarget.COUNT_DOWN, new DeleteCountDownRuleCommand(countDownRuleId));
 
       String response = requestService.sendRequest(tpLinkSmartPlug.getIpAddress(), request);
 
@@ -55,7 +55,7 @@ class CountDownService {
    }
 
    CountDownRule deleteAllCountDownRules(TpLinkSmartPlug tpLinkSmartPlug) {
-      TpLinkCommandWrapper request = new TpLinkCommandWrapper(TpLinkTargets.COUNT_DOWN, new DeleteAllCountDownRuleCommand());
+      TpLinkCommandWrapper request = new TpLinkCommandWrapper(TpLinkTarget.COUNT_DOWN, new DeleteAllCountDownRuleCommand());
 
       String response = requestService.sendRequest(tpLinkSmartPlug.getIpAddress(), request);
 

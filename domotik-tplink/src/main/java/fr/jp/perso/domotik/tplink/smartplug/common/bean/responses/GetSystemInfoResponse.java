@@ -1,9 +1,9 @@
 package fr.jp.perso.domotik.tplink.smartplug.common.bean.responses;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
-import fr.jp.perso.domotik.tplink.smartplug.common.enums.TpLinkActiveModes;
-import fr.jp.perso.domotik.tplink.smartplug.common.enums.TpLinkModels;
-import fr.jp.perso.domotik.tplink.smartplug.common.enums.TpLinkTypes;
+import fr.jp.perso.domotik.tplink.smartplug.common.enums.TpLinkActiveMode;
+import fr.jp.perso.domotik.tplink.smartplug.common.enums.TpLinkModel;
+import fr.jp.perso.domotik.tplink.smartplug.common.enums.TpLinkType;
 
 public class GetSystemInfoResponse extends TpLinkResponse {
    @JsonProperty("sw_ver")
@@ -11,9 +11,9 @@ public class GetSystemInfoResponse extends TpLinkResponse {
    @JsonProperty("hw_ver")
    private String hardwareVersion;
    @JsonProperty("type")
-   private TpLinkTypes type;
+   private TpLinkType type;
    @JsonProperty("model")
-   private TpLinkModels model;
+   private TpLinkModel model;
    @JsonProperty("mac")
    private String macAddress;
    @JsonProperty("dev_name")
@@ -25,7 +25,7 @@ public class GetSystemInfoResponse extends TpLinkResponse {
    @JsonProperty("on_time")
    private int upTime;
    @JsonProperty("active_mode")
-   private TpLinkActiveModes activeMode;
+   private TpLinkActiveMode activeMode;
    @JsonProperty("feature")
    private String feature;
    @JsonProperty("updating")
@@ -53,11 +53,11 @@ public class GetSystemInfoResponse extends TpLinkResponse {
       return hardwareVersion;
    }
 
-   public TpLinkTypes getType() {
+   public TpLinkType getType() {
       return type;
    }
 
-   public TpLinkModels getModel() {
+   public TpLinkModel getModel() {
       return model;
    }
 
@@ -81,7 +81,7 @@ public class GetSystemInfoResponse extends TpLinkResponse {
       return upTime;
    }
 
-   public TpLinkActiveModes getActiveMode() {
+   public TpLinkActiveMode getActiveMode() {
       return activeMode;
    }
 

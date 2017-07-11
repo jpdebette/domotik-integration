@@ -7,19 +7,19 @@ import com.fasterxml.jackson.databind.JsonSerializer;
 import com.fasterxml.jackson.databind.SerializerProvider;
 import com.fasterxml.jackson.databind.annotation.JsonSerialize;
 
-import fr.jp.perso.domotik.tplink.smartplug.common.enums.TpLinkTargets;
+import fr.jp.perso.domotik.tplink.smartplug.common.enums.TpLinkTarget;
 
 @JsonSerialize(using = CommandSerializer.class)
 public class TpLinkCommandWrapper {
-   private TpLinkTargets target;
+   private TpLinkTarget target;
    private TpLinkCommand command;
 
-   public TpLinkCommandWrapper(TpLinkTargets target, TpLinkCommand command) {
+   public TpLinkCommandWrapper(TpLinkTarget target, TpLinkCommand command) {
       this.target = target;
       this.command = command;
    }
 
-   public TpLinkTargets getTarget() {
+   public TpLinkTarget getTarget() {
       return target;
    }
 

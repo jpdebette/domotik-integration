@@ -11,7 +11,7 @@ import fr.jp.perso.domotik.tplink.smartplug.common.bean.commands.system.SetLedSt
 import fr.jp.perso.domotik.tplink.smartplug.common.bean.commands.system.SetRelayStateCommand;
 import fr.jp.perso.domotik.tplink.smartplug.common.bean.responses.GetSystemInfoResponse;
 import fr.jp.perso.domotik.tplink.smartplug.common.bean.responses.TpLinkResponse;
-import fr.jp.perso.domotik.tplink.smartplug.common.enums.TpLinkTargets;
+import fr.jp.perso.domotik.tplink.smartplug.common.enums.TpLinkTarget;
 
 @Component
 class SystemService {
@@ -19,7 +19,7 @@ class SystemService {
    private RequestService requestService;
 
    GetSystemInfoResponse getSystemInfo(TpLinkSmartPlug tpLinkSmartPlug) {
-      TpLinkCommandWrapper request = new TpLinkCommandWrapper(TpLinkTargets.SYSTEM, new GetSystemInfoCommand());
+      TpLinkCommandWrapper request = new TpLinkCommandWrapper(TpLinkTarget.SYSTEM, new GetSystemInfoCommand());
 
       String response = requestService.sendRequest(tpLinkSmartPlug.getIpAddress(), request);
 
@@ -28,7 +28,7 @@ class SystemService {
    }
 
    TpLinkResponse changeRelayState(TpLinkSmartPlug tpLinkSmartPlug, boolean state) {
-      TpLinkCommandWrapper request = new TpLinkCommandWrapper(TpLinkTargets.SYSTEM, new SetRelayStateCommand(state));
+      TpLinkCommandWrapper request = new TpLinkCommandWrapper(TpLinkTarget.SYSTEM, new SetRelayStateCommand(state));
 
       String response = requestService.sendRequest(tpLinkSmartPlug.getIpAddress(), request);
 
@@ -37,7 +37,7 @@ class SystemService {
    }
 
    TpLinkResponse changeLedState(TpLinkSmartPlug tpLinkSmartPlug, boolean state) {
-      TpLinkCommandWrapper request = new TpLinkCommandWrapper(TpLinkTargets.SYSTEM, new SetLedStateCommand(state));
+      TpLinkCommandWrapper request = new TpLinkCommandWrapper(TpLinkTarget.SYSTEM, new SetLedStateCommand(state));
 
       String response = requestService.sendRequest(tpLinkSmartPlug.getIpAddress(), request);
 
@@ -46,7 +46,7 @@ class SystemService {
    }
 
    TpLinkResponse reboot(TpLinkSmartPlug tpLinkSmartPlug, int delay) {
-      TpLinkCommandWrapper request = new TpLinkCommandWrapper(TpLinkTargets.SYSTEM, new RebootCommand(delay));
+      TpLinkCommandWrapper request = new TpLinkCommandWrapper(TpLinkTarget.SYSTEM, new RebootCommand(delay));
 
       String response = requestService.sendRequest(tpLinkSmartPlug.getIpAddress(), request);
 
